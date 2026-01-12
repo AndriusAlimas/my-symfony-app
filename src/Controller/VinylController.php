@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class VinylController
 {
     #[Route('/', name: 'home')]
-    public function homepage(){
+    public function homepage():Response{
        return new Response('Title: Welcome to Symfony!!!');
     }
 }
