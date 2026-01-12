@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  symfony:
+    build: .
+    container_name: symfony-app
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - APP_ENV=dev
+      - APP_DEBUG=1
+    networks:
+      - symfony-network
+
+networks:
+  symfony-network:
+    driver: bridge

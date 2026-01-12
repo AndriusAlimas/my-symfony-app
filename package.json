@@ -1,0 +1,27 @@
+{
+  "name": "my-symfony-app",
+  "version": "1.0.0",
+  "description": "Symfony Docker Development Environment",
+  "scripts": {
+    "help": "echo \"Available commands:\" && echo \"  npm run setup   - Complete setup (init + build + dev)\" && echo \"  npm run init    - Initialize Symfony project\" && echo \"  npm run build   - Build Docker images\" && echo \"  npm run dev     - Start development server\" && echo \"  npm run stop    - Stop development server\" && echo \"  npm run logs    - Show container logs\" && echo \"  npm run shell   - Access container shell\" && echo \"  npm run clean   - Clean up everything\" && echo \"  npm run fresh   - Complete fresh start\"",
+    "setup": "npm run init && npm run build && npm run dev && echo \"🚀 Ready at http://localhost:8000\"",
+    "init": "echo \"📦 Creating Symfony project...\" && composer create-project symfony/skeleton temp-symfony \"^6.4\" --no-interaction && xcopy temp-symfony\\* . /s /e /y && rmdir temp-symfony /s /q && composer require symfony/maker-bundle --dev --no-interaction && composer require symfony/twig-bundle --no-interaction && composer require symfony/asset --no-interaction && echo \"✅ Symfony project initialized\"",
+    "build": "echo \"🐳 Building Docker images...\" && docker-compose build && echo \"✅ Docker images built\"",
+    "dev": "echo \"🚀 Starting development...\" && docker-compose up -d && echo \"✅ Running at http://localhost:8000\"",
+    "stop": "echo \"🛑 Stopping development...\" && docker-compose down && echo \"✅ Stopped\"",
+    "logs": "docker-compose logs -f",
+    "shell": "docker-compose exec symfony bash",
+    "clean": "echo \"🧹 Cleaning up...\" && docker-compose down -v --rmi all --remove-orphans && docker system prune -f && echo \"✅ Clean\"",
+    "fresh": "npm run clean && npm run setup",
+    "controller": "docker-compose exec symfony php bin/console make:controller",
+    "test": "docker-compose exec symfony php bin/phpunit"
+  },
+  "keywords": [
+    "symfony",
+    "docker",
+    "php",
+    "development"
+  ],
+  "author": "Developer",
+  "license": "MIT"
+}
