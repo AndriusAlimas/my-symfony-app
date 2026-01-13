@@ -16,12 +16,12 @@ class CountryController
     }
 
     #[Route('/country/{country}','name: browse')]
-    public function browse(string $country = null) : Response
+    public function country(string $country = null) : Response
     {
         if($country){
             $country = u(str_replace('-',' ',$country))->title(true);
         }else{
-            $country = 'No country selected!';
+            $country = 'No country seleceted!';
         }
         
 
