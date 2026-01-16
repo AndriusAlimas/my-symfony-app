@@ -2,29 +2,29 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 use function Symfony\Component\String\u;
 
-class CountryController 
+class CountryController extends AbstractController
 {
-    #[Route('/','name: homepage')]
+    #[Route('/')]
     public function homepage() : Response
     {
-        return new Response('Country: All');
+       return new Response('Welcome to the Country Info Homepage!');
     }
 
-    #[Route('/country/{country}','name: browse')]
-    public function country(string $country = null) : Response
+    #[Route('/country/{country}')]
+    public function country(?string $country = null) : Response
     {
         if($country){
-            $country = u(str_replace('-',' ',$country))->title(true);
-        }else{
-            $country = 'No country seleceted!';
+             $country = u(str_replace('-',' ',$country))->title(true);
+        } else {
+             $country = 'Unknown Country';  
         }
-        
-
-        return new Response("Country: {$country}");
+       
+      return new Response(''.$country.'');
     }
 }

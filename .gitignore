@@ -1,4 +1,5 @@
 
+# === SYMFONY FRAMEWORK ===
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -8,3 +9,102 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+# === ENVIRONMENT FILES ===
+# All environment files (contain sensitive data)
+.env
+.env.dev
+.env.prod
+.env.test
+.env.staging
+*.env.backup
+
+# === NODE.JS ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# === IDE & EDITORS ===
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# PhpStorm / IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# === OPERATING SYSTEM ===
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.Trash-*
+
+# === DOCKER ===
+# Docker override files (keep base docker-compose.yml)
+docker-compose.override.yml
+docker-compose.local.yml
+docker-compose.*.local.yml
+
+# Docker volumes data (if using local volumes)
+/docker-data/
+/volumes/
+
+# === LOGS ===
+*.log
+logs/
+/var/log/
+
+# === TEMPORARY FILES ===
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# === COMPOSER ===
+# composer.lock should usually be committed, but in case you want to ignore it:
+# composer.lock
+
+# === SYMFONY SPECIFIC ===
+# Symfony cache and logs (already covered by /var/ but being explicit)
+/var/cache/
+/var/log/
+
+# Symfony webpack encore
+/public/build/
+/node_modules/
+
+# === TESTING ===
+/phpunit.xml
+/.phpunit.result.cache
+/tests/coverage/
+
+# === BACKUP FILES ===
+*.backup
+*.bak
+*.orig
